@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -39,6 +40,17 @@ class ShopServiceTest {
         assertNotNull(actual);
         assertFalse(actual.contains("Salami"));
         System.out.println(actual);
+
+    }
+    @Test
+    void testOfGetProduct(){
+        fillMap();
+        ProductRepo myProducts = new ProductRepo(productMap);
+        ShopService myShopService = new ShopService(myProducts);
+
+        String expected = "Kernseife";
+        String actual = myShopService.getProduct(2).getName();
+        assertEquals(expected, actual);
 
     }
 

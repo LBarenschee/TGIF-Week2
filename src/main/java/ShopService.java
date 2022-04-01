@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ShopService {
 
@@ -11,8 +12,9 @@ public class ShopService {
         this.orderRepo = new OrderRepo();
     }
 
-    public Product getProduct(){
-        return null;
+    public Product getProduct(int key){
+        Map<Integer, Product> prod = this.productRepo.get();
+        return prod.get(key);
     }
 
     public String listProduct(){
