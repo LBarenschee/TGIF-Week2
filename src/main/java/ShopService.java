@@ -1,14 +1,27 @@
+import java.util.ArrayList;
+
 public class ShopService {
 
-    ProductRepo productRepo;
-    OrderRepo orderRepo;
+
+    private ProductRepo productRepo;
+    private OrderRepo orderRepo;
+
+    public ShopService(ProductRepo productRepo) {
+        this.productRepo = productRepo;
+        this.orderRepo = new OrderRepo();
+    }
 
     public Product getProduct(){
         return null;
     }
 
-    public void listProduct(){
-    //sout planned
+    public String listProduct(){
+        String finalString = "";
+        ArrayList<Product> products = productRepo.list();
+        for (Product product : products) {
+            finalString += "[" + product.getId() + "] " + product.getName() +"\n";
+        }
+        return finalString;
     }
 
     public void addOrder(){
@@ -19,8 +32,12 @@ public class ShopService {
         return null;
     }
 
-    public void listOrder(){
+    public String listOrder(){
+        return null;
+    }
 
+    public void userMenu(){
+        //handle user choice of action
     }
 }
 
