@@ -66,4 +66,15 @@ class ShopServiceTest {
         assertTrue(isAdded.contains("Added"));
     }
 
+    @Test
+    void getOrderTest(){
+        fillMap();
+        ProductRepo myProducts = new ProductRepo(productMap);
+        ShopService myShopService = new ShopService(myProducts);
+
+        Order order = new Order(1, myProducts.list());
+
+        String isAdded = myShopService.addOrder(order);
+        assertEquals(order, myShopService.getOrder(1));
+    }
 }

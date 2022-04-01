@@ -36,7 +36,8 @@ public class ShopService {
     }
 
     public Order getOrder(int id){
-        return null;
+        return this.orderRepo.get(id);
+
     }
 
     public String listOrder(){
