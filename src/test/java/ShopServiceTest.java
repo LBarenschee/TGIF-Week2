@@ -2,8 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,4 +76,27 @@ class ShopServiceTest {
         String isAdded = myShopService.addOrder(order);
         assertEquals(order, myShopService.getOrder(1));
     }
+
+    @Test
+    void testListOrder(){
+        fillMap();
+        ProductRepo myProducts = new ProductRepo(productMap);
+        ShopService myShopService = new ShopService(myProducts);
+
+        ArrayList<Product> orderList1 = new ArrayList<>(Arrays.asList(soap, shampoo));
+        ArrayList<Product> orderList2 = new ArrayList<>(Arrays.asList(soap, shampoo, beer));
+
+        Order order = new Order(1, orderList1);
+        Order order2 = new Order(2, orderList2);
+
+        myShopService.addOrder(order);
+        myShopService.addOrder(order2);
+        assertTrue(myShopService.listOrder().contains("Kernseife"));
+
+
+    }
+
+
+
+
 }

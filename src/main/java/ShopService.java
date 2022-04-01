@@ -41,7 +41,12 @@ public class ShopService {
     }
 
     public String listOrder(){
-        return null;
+        String finalString = "";
+        ArrayList<Order> orders = orderRepo.list();
+        for(Order order : orders) {
+            finalString += "[" + order.getId() + "] " + order.toString() +"\n";
+        }
+        return finalString;
     }
 
     public void userMenu(){
