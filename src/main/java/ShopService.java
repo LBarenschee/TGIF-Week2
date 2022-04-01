@@ -26,7 +26,12 @@ public class ShopService {
         return finalString;
     }
 
-    public void addOrder(){
+    public String addOrder(Order order){
+        if(orderRepo.add(order)){
+            return "Added " + order + " to order list.";
+        } else {
+            return "Could not add " + order + " to order list.";
+        }
 
     }
 
