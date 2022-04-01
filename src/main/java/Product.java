@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.NoSuchElementException;
+
 public class Product {
 
    private int id;
@@ -7,6 +11,7 @@ public class Product {
         this.id = id;
         this.name = name;
     }
+
 
     public int getId() {
         return id;
