@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -73,7 +71,7 @@ class ShopServiceTest {
 
         Order order = new Order(1, myProducts.list());
 
-        String isAdded = myShopService.addOrder(order);
+        myShopService.addOrder(order);
         assertEquals(order, myShopService.getOrder(1));
     }
 
